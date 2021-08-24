@@ -44,6 +44,9 @@ public:
      * \param resizable
      *     If creating a window, should it be resizable?
      *
+     * \param maximized
+     *     Specifies whether the window should be maximized upon creation
+     *
      * \param fullscreen
      *     Specifies whether to create a windowed or full-screen view
      *
@@ -78,6 +81,7 @@ public:
         const Vector2i &size,
         const std::string &caption = "Unnamed",
         bool resizable = true,
+        bool maximized = false,
         bool fullscreen = false,
         bool depth_buffer = true,
         bool stencil_buffer = true,
@@ -179,6 +183,8 @@ public:
     void set_resize_callback(const std::function<void(Vector2i)> &callback) {
         m_resize_callback = callback;
     }
+
+    virtual bool maximize_event(bool maximized);
 
     /// Return the last observed mouse position value
     Vector2i mouse_pos() const { return m_mouse_pos; }
