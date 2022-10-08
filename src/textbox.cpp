@@ -465,7 +465,7 @@ bool TextBox::keyboard_event(int key, int /* scancode */, int action, int modifi
                     if (m_cursor_pos < (int) m_value_temp.length())
                         m_value_temp.erase(m_value_temp.begin() + m_cursor_pos);
                 }
-            } else if (key == GLFW_KEY_ENTER) {
+            } else if (key == GLFW_KEY_ENTER || key == GLFW_KEY_KP_ENTER) {
                 if (!m_committed)
                     focus_event(false);
             } else if (key == GLFW_KEY_A && modifiers == SYSTEM_COMMAND_MOD) {
