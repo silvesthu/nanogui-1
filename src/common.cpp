@@ -398,7 +398,7 @@ std::vector<std::string> file_dialog(const std::vector<std::pair<std::string, st
         result.erase(begin(result));
     }
 
-    if (save && ofn.nFilterIndex > 0) {
+    if (save && ofn.nFilterIndex > 0 && result.front().find('.') == std::string::npos) {
         auto ext = filetypes[ofn.nFilterIndex - 1].first;
         if (ext != "*") {
             ext.insert(0, ".");
